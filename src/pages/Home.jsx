@@ -1,7 +1,7 @@
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import React, { useEffect, useState } from "react";
-import Card from "./components/Card.jsx";
+import Card from "../components/Card.jsx";
 
 export const Home = () => {
 	const slug = "Julian"
@@ -19,8 +19,7 @@ export const Home = () => {
 				})
 				await responseUsuario.json()
 			}
-			const respuesta = await fetch(`https://playground.4geeks.com/contact/agendas/${slug}`
-				`https://playground.4geeks.com/contact/agendas/${slug}/contacts`)
+			const respuesta = await fetch(`https://playground.4geeks.com/contact/agendas/${slug}/contacts`)
 			const data = await respuesta.json()
 			setList(data.contacts)
 			dispatch({ type: "get_contacts", payload: data.contacts })
@@ -30,15 +29,15 @@ export const Home = () => {
 		}
 	}
 
-	useEffect(()=>{getContacts()},[])
+	useEffect(() => { getContacts() }, [])
 
 	return (
 		<div className="text-center mt-5">
 			<h1>Agenda: {slug}</h1>
-		{list.map((item)=>(
-			<Card informacion ={item} key={item.id}/>
-			))}	
-		
+			{list.map((item) => (
+				<Card informacion={item} key={item.id} />
+			))}
+
 		</div>
 	);
 }; 

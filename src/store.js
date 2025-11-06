@@ -31,11 +31,11 @@ export default function storeReducer(store, action = {}) {
 
     case 'get_contacts':
 
-    
+
 
       return {
         ...store,
-        contacts: 
+        contacts: action.payload 
       };
 
     default:
