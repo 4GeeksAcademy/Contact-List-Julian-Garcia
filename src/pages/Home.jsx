@@ -32,7 +32,7 @@ export const Home = () => {
 	useEffect(() => { getContacts() }, [])
 
 	return (
-		<div className="text-center mt-5">
+		<div className="text-center mt-5 m-auto">
 			<h1>Agenda: {slug}</h1>
 			{list.map((item) => (
 				<Card informacion={item} key={item.id} />

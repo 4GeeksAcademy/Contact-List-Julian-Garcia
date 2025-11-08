@@ -2,11 +2,11 @@ import React from "react";
 
 const Card = (props) => {
     return (
-        <div>
-            <div className="card mb-3" style={{maxWidth: "540px"}}>
+        <div className="my-auto" >
+            <div className="card mb-3 text-center" style={{ maxWidth: "540px" }}>
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img src="..." className="img-fluid rounded-start" alt="..."/>
+                        <img src="https://img.freepik.com/vector-premium/icono-perfil-avatar-predeterminado-imagen-usuario-redes-sociales-icono-avatar-gris-silueta-perfil-blanco-ilustracion-vectorial_561158-3467.jpg?w=360" className="img-fluid rounded-start" alt="..." />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
@@ -14,7 +14,7 @@ const Card = (props) => {
                             <p className="card-text">Telefono: {props.informacion.phone}</p>
                             <p className="card-text">Direccion: {props.informacion.address}</p>
                             <p className="card-text">Email: {props.informacion.email}</p>
-                            
+
                         </div>
                     </div>
                 </div>
