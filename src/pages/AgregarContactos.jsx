@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+
 const AgregarContactos = () => {
     const { store, dispatch } = useGlobalReducer()
     let [data, setData] = useState({
