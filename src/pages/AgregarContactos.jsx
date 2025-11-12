@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { Link, useNavigate } from "react-router-dom";
 
 const AgregarContactos = () => {
+    const navigate = useNavigate()
     const { store, dispatch } = useGlobalReducer()
     let [data, setData] = useState({
         name: "",
@@ -18,10 +20,16 @@ const AgregarContactos = () => {
         fetch("https://playground.4geeks.com/contact/agendas/Julian/contacts", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({...data,agenda_slug:"Julian"})
+            body: JSON.stringify({ ...data, agenda_slug: "Julian" })
         })
-        .then (response => response.json())
-       .catch(error => { console.log('Hubo un problema al crear la agenda: \n', error) })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                
+                navigate("/")
+            })
+
+            .catch(error => { console.log('Hubo un problema al crear la agenda: \n', error) })
     }
     return (
         <div className="container-fluid">
@@ -45,13 +53,14 @@ const AgregarContactos = () => {
 
                 <div className="col-12">
                     <button type="submit" className="btn btn-primary">Crear Contacto</button>
-                    </div>
-                     <div>
-                    {/* <link to="/"> */}
-                    <span>Vuelve a contactos</span>
-                    {/* </link> */}
                 </div>
+
             </form>
+            <div>
+                <Link to="/">
+                    <span>Vuelve a contactos</span>
+                </Link>
+            </div>
         </div>
     )
 }

@@ -1,6 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+
 
 const Card = (props) => {
+
+    const deleteTask = async (id) => {
+        try {
+            const response = await fetch(`https://playground.4geeks.com/contact/agendas/Julian/contacts/${contact_id}`, {
+                method: "DELETE",
+            });
+
+            if (response.ok) {
+            }
+            console.log(response.status);
+
+
+
+        } catch (error) {
+            console.error("Error al borrar:", error);
+        }
+    };
+
     return (
         <div className="my-auto" >
             <div className="card mb-3 text-center" style={{ maxWidth: "540px" }}>
@@ -14,6 +35,12 @@ const Card = (props) => {
                             <p className="card-text">Telefono: {props.informacion.phone}</p>
                             <p className="card-text">Direccion: {props.informacion.address}</p>
                             <p className="card-text">Email: {props.informacion.email}</p>
+                            <Link to={'/edit/' + props.informacion.id}>
+                                <button>edit</button>
+                            </Link>
+
+
+                            <button onClick={() => deleteTask()} >borrar</button>
 
                         </div>
                     </div>
