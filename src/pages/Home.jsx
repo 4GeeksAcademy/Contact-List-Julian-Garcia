@@ -33,7 +33,7 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5 m-auto">
-			<h1>Agenda: {slug}</h1>
+			<h1>Agenda de: {slug}</h1>
 			{list.map((item) => (
 				<Card informacion={item} key={item.id} />
 			))}

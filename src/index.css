@@ -1,0 +1,26 @@
+body {
+    background-image: url("https://www.carbonbrief.org/wp-content/uploads/2019/09/Blue-green-sea-surface-background-with-fishes-full-frame-composition-DWGX61.jpg") ;
+
+}
+
+.my-auto {
+    display:flex;
+    justify-content: center;
+}
+
+img{
+    object-fit:fill;
+}
+
+div.col-md-8{
+    background-color: rgb(214, 247, 247);
+}
+
+
+
+.edit{
+    background-color: rgb(214, 247, 247);
+    border-radius: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+}

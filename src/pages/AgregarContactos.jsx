@@ -32,7 +32,7 @@ const AgregarContactos = () => {
             .catch(error => { console.log('Hubo un problema al crear la agenda: \n', error) })
     }
     return (
-        <div className="container-fluid">
+        <div className="container edit">
             <form className="row g-3" onSubmit={crear}>
                 <div className="col-md-6">
                     <label htmlFor="inputEmail4" className="form-label">Email</label>
