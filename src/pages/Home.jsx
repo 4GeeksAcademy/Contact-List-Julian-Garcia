@@ -11,8 +11,8 @@ export const Home = () => {
 
 	const getContacts = async () => {
 		try {
-			const responseAgenda = fetch(`https://playground.4geeks.com/contact/agendas/${slug}`)
-			if (responseAgenda === 400) {
+			const responseAgenda = await fetch(`https://playground.4geeks.com/contact/agendas/${slug}`)
+			if (responseAgenda.status === 404) {				
 				const responseUsuario = await fetch(`https://playground.4geeks.com/contact/agendas/${slug}`, {
 					method: "POST",
 					headers: { "Content-Type": "application/json" }
@@ -21,6 +21,7 @@ export const Home = () => {
 			}
 			const respuesta = await fetch(`https://playground.4geeks.com/contact/agendas/${slug}/contacts`)
 			const data = await respuesta.json()
+
 			setList(data.contacts)
 			dispatch({ type: "get_contacts", payload: data.contacts })
 		} catch (error) {
